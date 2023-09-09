@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slider {
+  height: 40px;
+  border: 2px solid #f54e4e;
+  border-radius: 20px;
+}
+
+.slider.green {
+  border: 2px solid #4aec8c;
+}
+
+.thumb {
+  background-color: #f54e4e;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 20px;
+}
+.slider.green .thumb {
+  background-color: #4aec8c;
+}
