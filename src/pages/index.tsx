@@ -3,10 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import SettingsPage from "~/components/SettingsPage";
 import Timer from "~/components/Timer";
+import SettingsContext from "~/lib/settingsContext";
 
 export default function Home() {
 
   const [showSettings, setShowSettings] = useState(true)
+  const [workMinutes, setWorkMinutes,] = useState(45)
+  const [breakMinutes, setBreakMinutes,] = useState(15)
 
   return (
     <>
@@ -16,9 +19,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col min-h-screen items-center justify-center text-center w-full pt-12 bg-[#30384b] text-[#eee]">
-        {showSettings ? <SettingsPage /> : <Timer />}
-
-
+        <SettingsContext.Provider value={{
+          workMins: workMinutes,
+          breakMins: breakMinutes,
+          setWorkMinutes,
+          setBreakMinutes,
+        }}>
+          {showSettings ? <SettingsPage /> : <Timer />}
+        </SettingsContext.Provider>
       </main>
     </>
   );
