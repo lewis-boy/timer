@@ -20,6 +20,8 @@ export default function Home() {
       </Head>
       <main className="flex flex-col min-h-screen items-center justify-center text-center w-full pt-12 bg-[#30384b] text-[#eee]">
         <SettingsContext.Provider value={{
+          showSettings,
+          setShowSettings,
           workMins: workMinutes,
           breakMins: breakMinutes,
           setWorkMinutes,
